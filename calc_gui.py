@@ -4,7 +4,8 @@ import decimal
 import math
 
 
-version = '1.0.0'
+version = '1.0.1'
+build_num = 1001
 
 def auto_number(Number : str) :    
     ans = bool(re.findall(r"\.", str(Number)))
@@ -214,7 +215,7 @@ def about_screen() :
     about2Text.grid(row=0,column=1)
 
     versionText = tk.StringVar()
-    versionText.set(f"V.{version}")
+    versionText.set(f"V.{version} {build_num}")
     
     versionLabel = tk.Label(top, textvariable = versionText, font=("JetBrains Mono",9), justify = "center")
     versionLabel.grid(row=2,column=0,columnspan=2,sticky="news")
