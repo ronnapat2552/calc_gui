@@ -5,7 +5,7 @@ import math
 
 
 version = '1.0.1'
-build_num = 1001
+build_num = 1002
 
 def auto_number(Number : str) :    
     ans = bool(re.findall(r"\.", str(Number)))
@@ -253,7 +253,7 @@ labelStatus.grid(row=0,column=0, columnspan = 1, sticky = "news")
 label1Text = tk.StringVar()
 label1Text.set(expression)
 #                                                                                                        Anchor to west  Align to the left
-label1 = tk.Label(m, borderwidth = 2, relief="ridge", textvariable = label1Text,width=1,font=("JetBrains Mono",21), anchor = "e", justify = "right")
+label1 = tk.Label(m, borderwidth = 2, relief="ridge", textvariable = label1Text,width=1,font=("JetBrains Mono",20), anchor = "e", justify = "right")
 label1.grid(row=1,column=0, columnspan = 7, sticky = "news")
 # Equal button
 buttonEqual = tk.Button(m, text = '=', width = 4, font=main_font, command = equal)
