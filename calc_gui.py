@@ -6,7 +6,7 @@ import pyperclip
 import asyncio
 
 version = '1.0.1'
-build_num = 1003
+build_num = 1004
 
 def auto_number(Number : str) :    
     ans = bool(re.findall(r"\.", str(Number)))
@@ -242,7 +242,7 @@ menubar = tk.Menu(m)
 # Adding File Menu and commands 
 file = tk.Menu(menubar, tearoff = 0) 
 menubar.add_cascade(label ='File', menu = file) 
-file.add_command(label ='Copy Display', command = copy_paste)
+file.add_command(label ='Copy Display', command = asyncio.run(copy_paste))
 file.add_command(label ='Paste Display', command = None)
 file.add_command(label ='Mode', command = None) 
 file.add_command(label ='About', command = about_screen) 
