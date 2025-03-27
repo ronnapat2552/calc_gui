@@ -2,10 +2,11 @@ import tkinter as tk
 import re
 import decimal
 import math
-
+import pyperclip
+import asyncio
 
 version = '1.0.1'
-build_num = 1002
+build_num = 1003
 
 def auto_number(Number : str) :    
     ans = bool(re.findall(r"\.", str(Number)))
@@ -184,6 +185,19 @@ def backspace() :
         loop += 1
     label1Text.set(expression)
 
+# Copy & Paste
+def copy_paste() :
+    global expression
+    global label1Text
+    global expression_list
+    global labelExpressionText
+
+    pyperclip.copy(expression)
+    labelExpressionText.set("Copied to Clipboard.")
+    asyncio.sleep(3)
+    labelExpressionText.set(expression_list)
+    
+
 
 m=tk.Tk()
 m.title('Calculator GUI by Ronnapat')
@@ -198,10 +212,10 @@ m.columnconfigure(0, weight=1)
 main_font = ("JetBrains Mono",11)
 
 
-expression_list = ""
-expression = ""
-status = " "
-memory = ""
+expression_list = "" # Expression
+expression = ""      # Main Display
+status = " "         # Status Memory
+memory = ""          # Memory Store
 
 # Pop Up
 def about_screen() :
@@ -228,6 +242,8 @@ menubar = tk.Menu(m)
 # Adding File Menu and commands 
 file = tk.Menu(menubar, tearoff = 0) 
 menubar.add_cascade(label ='File', menu = file) 
+file.add_command(label ='Copy Display', command = copy_paste)
+file.add_command(label ='Paste Display', command = None)
 file.add_command(label ='Mode', command = None) 
 file.add_command(label ='About', command = about_screen) 
 file.add_separator() 
