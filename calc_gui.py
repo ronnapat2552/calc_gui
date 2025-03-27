@@ -3,10 +3,10 @@ import re
 import decimal
 import math
 import pyperclip
-import asyncio
+import time
 
 version = '1.0.1'
-build_num = 1004
+build_num = 1005
 
 def auto_number(Number : str) :    
     ans = bool(re.findall(r"\.", str(Number)))
@@ -185,18 +185,10 @@ def backspace() :
         loop += 1
     label1Text.set(expression)
 
-# Copy & Paste
-def copy_paste() :
+# Copy & Paste    
+def copy() :
     global expression
-    global label1Text
-    global expression_list
-    global labelExpressionText
-
     pyperclip.copy(expression)
-    labelExpressionText.set("Copied to Clipboard.")
-    asyncio.sleep(3)
-    labelExpressionText.set(expression_list)
-    
 
 
 m=tk.Tk()
@@ -242,8 +234,7 @@ menubar = tk.Menu(m)
 # Adding File Menu and commands 
 file = tk.Menu(menubar, tearoff = 0) 
 menubar.add_cascade(label ='File', menu = file) 
-file.add_command(label ='Copy Display', command = asyncio.run(copy_paste))
-file.add_command(label ='Paste Display', command = None)
+file.add_command(label ='Copy', command = copy)
 file.add_command(label ='Mode', command = None) 
 file.add_command(label ='About', command = about_screen) 
 file.add_separator() 
