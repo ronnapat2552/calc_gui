@@ -6,7 +6,7 @@ import pyperclip
 import time
 
 version = '1.0.1'
-build_num = 1006
+build_num = 1007
 
 def auto_number(Number : str) :    
     ans = bool(re.findall(r"\.", str(Number)))
@@ -214,7 +214,7 @@ memory = ""          # Memory Store
 def about_screen() :
     top = tk.Toplevel(m)
     top.title("About")
-
+    top.resizable(width=0,height=0) # Window size change Not allowed 
     about1Text = tk.Label(top, text="Calculator GUI", font=main_font)
     about1Text.grid(row=0,column=0)
 
