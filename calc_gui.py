@@ -6,7 +6,7 @@ import pyperclip
 import time
 
 version = '1.0.1'
-build_num = 1005
+build_num = 1006
 
 def auto_number(Number : str) :    
     ans = bool(re.findall(r"\.", str(Number)))
@@ -80,7 +80,7 @@ def press (n):
         expression = expression + n
         expression_list = expression
         label1Text.set(expression)
-        labelExpressionText.set(expression_list)
+        labelExpressionText.set("")
     
 def equal():
     try:
@@ -172,8 +172,6 @@ def backspace() :
     global label1Text
     global expression_list
     global labelExpressionText
-    expression_list = ""
-    labelExpressionText.set(expression_list)
     swtich : str = expression.replace(""," ")[1:-1]
     swtich_list = []
     swtich_list = swtich.rsplit(" ")
@@ -184,6 +182,9 @@ def backspace() :
         expression = f"{expression}{swtich_list[loop]}"
         loop += 1
     label1Text.set(expression)
+
+    expression_list = expression
+    labelExpressionText.set("")
 
 # Copy & Paste    
 def copy() :
